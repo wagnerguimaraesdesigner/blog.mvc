@@ -1,8 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<Postagem>
+@{
+        ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">@ViewData["Mensagem"]</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Blog da Bia</h1>
+    <p>Confira as últimas receitas e novidades do mundo!!!.</p>
+    <p>Morango do amor é aquela receita que vai fazer você se apaixonar. Inspirada na aparência da maçã do amor e no
+        recheio cremoso da bala baiana, a receita de morango do amor une sabores e texturas irresistíveis para fazer um 
+        doce que é garantia de sucesso por onde passa.</p>
 </div>
+
+@foreach (Postagem postagem in Model)
+{
+    <p>@postagem.Nome</p>
+    <img src="@postagem.Foto" width="300"/>
+}
