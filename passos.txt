@@ -6,4 +6,5 @@ Criando um projeto MVC
 dotnet new mvc -o BlogBea
 
 Executar
+cd BlogBea 
 dotnet watch run

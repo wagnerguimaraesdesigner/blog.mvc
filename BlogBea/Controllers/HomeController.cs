@@ -7,32 +7,29 @@ namespace BlogBea.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private List<Categoria> categorias;
+    private List<Postagem> postagens;
 
     public HomeController(ILogger<HomeController> logger)
     { 
         _logger = logger;
-    }
-
-    public IActionResult Index()
-    {
         Categoria tecnologia = new ();
         tecnologia.Id = 1;
         tecnologia.Nome = "Tegnologia";
         Categoria categoria2 =  new(){
             Id= 2,
-            Nome = "IA"
+            Nome = "Receitas"
         };
 
-        Categoria receita = new(3, "Morango do amor");
-
-        List<Postagem> postagens =[
+        Categoria receita = new(3, "Receitas");
+        postagens =[
             new(){
                 Id = 1,
                 Nome = "Receita Morango do Amor",
                 CategoriaId = 2,
                 Categoria = categoria2,
                 DataPostagem = DateTime.Parse("08/08/2025"),
-                Descricao = "dfçlkgjmçldfg",
+                Descricao = "Morango do Amor é simples, deliciosa e perfeita para festas ou para aquele lanche especial",
                 Texto = "kgklfghlkfghj",
                 Thumbnail = "/img/1.jpeg",
                 Foto = "/img/1.jpeg"
@@ -41,11 +38,11 @@ public class HomeController : Controller
 
               new(){
                 Id = 2,
-                Nome = "Receita Morango do Amor 2",
+                Nome = "Torta de Morango",
                 CategoriaId = 3,
                 Categoria = receita,
                 DataPostagem = DateTime.Parse("08/08/2025"),
-                Descricao = "teste",
+                Descricao = "",
                 Texto = "testeeee",
                 Thumbnail = "/img/1.jpeg",
                 Foto = "/img/1.jpeg"
@@ -58,7 +55,7 @@ public class HomeController : Controller
                 CategoriaId = 4,
                 Categoria = receita,
                 DataPostagem = DateTime.Parse("08/08/2025"),
-                Descricao = "teste",
+                Descricao = "Ver mais...",
                 Texto = "testeeee",
                 Thumbnail = "/img/1.jpeg",
                 Foto = "/img/1.jpeg"
@@ -70,7 +67,7 @@ public class HomeController : Controller
                 CategoriaId = 5,
                 Categoria = receita,
                 DataPostagem = DateTime.Parse("08/08/2025"),
-                Descricao = "teste",
+                Descricao = "Ver mais...",
                 Texto = "testeeee",
                 Thumbnail = "/img/1.jpeg",
                 Foto = "/img/1.jpeg"
@@ -79,8 +76,35 @@ public class HomeController : Controller
         ];
 
 
+    }
+
+    public IActionResult Index()
+    {
+
+
+        
         return View(postagens);
     }
+
+      public IActionResult Postagem (int id)
+    {
+        var postagem = postagens
+            .Where(p => p.Id == id)
+            .SingleOrDefault();
+        if (postagem == null)
+            return NotFound();
+        return View(postagem);
+    }
+
+
+
+
+
+
+
+
+
+
 
     public IActionResult Privacy()
     {
