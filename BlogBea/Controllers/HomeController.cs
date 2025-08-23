@@ -30,7 +30,7 @@ public class HomeController : Controller
                 Categoria = categoria2,
                 DataPostagem = DateTime.Parse("08/08/2025"),
                 Descricao = "Morango do Amor é simples, deliciosa e perfeita para festas ou para aquele lanche especial",
-                Texto = "kgklfghlkfghj",
+                Texto = "deliciosa receita",
                 Thumbnail = "/img/1.jpeg",
                 Foto = "/img/1.jpeg"
 
@@ -45,7 +45,7 @@ public class HomeController : Controller
                 Descricao = "",
                 Texto = "testeeee",
                 Thumbnail = "/img/1.jpeg",
-                Foto = "/img/1.jpeg"
+                Foto = "/img/torta de morango.jpg"
 
             },
 
